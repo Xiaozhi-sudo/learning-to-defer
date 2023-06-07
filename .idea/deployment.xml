@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="css" autoUploadExternalChanges="true" showDifferentInSync="false">
+    <serverData>
+      <paths name="151">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/data3/lzz2/Research/L2D/CSS" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="css">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/data3/lzz2/Research/L2D/CSS" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="lzz2@211.87.232.151:22 (1)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/data3/lzz2/Research/L2D/CSS" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="lzz2@211.87.232.151:22 (4)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/data3/lzz2/Research/L2D/CSS" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="lzz2@211.87.232.151:22 (5)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/data3/lzz2/Research/L2D/CSS" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="lzz2@211.87.232.151:22 password">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
