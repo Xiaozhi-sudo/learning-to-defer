@@ -1,29 +1,20 @@
-# MedMNIST L2D
-This program is about l2d algorithm on the mnist dataset
-## WarmStart
-If you want to use a pre trained feature extractor, please run the `train_classifier.py` file first. And set the `warmstart` parameter when training the model with `main.py`
+# C2F L2D
+This program is about l2d-C2F algorithm 
+## MedMNIST Dataset
+You can refer to this repository for the use of the MedMNIST dataset:<https://github.com/MedMNIST/MedMNIST>
+### Pre-training
+The C2F algorithm is divided into two stages, pre-training and meta-learning. Pre-train using the following command
 ```
-python run_classifier.py --dataset=organamnist 
+python main.py --dataset=organamnist --phase=pre_train --pre_experts=8 --pre_lr=0.01
 ```
-## MedMNIST Experiment
-If you want to implement domain generalization experiments from **OrganANMNIST to OrganANMNIST**, please execute the following command:
-```python
-python main.py --mode=train --dataset=organamnist --test_dataset=organcmnist --gpu_ids=0 --l2d=EWA --train_experts=3 --warmstart
+### Meta-training
 ```
-Here are explanations of some important args,
+python main.py --dataset=organamnist --phase=meta_train --meta_experts=3 --time_stamp_pre={pre_train_time}
 ```
---l2d: specifies l2d algorithm, including 6 types, namely Multi,MAML,EWA,EWA_attn,pop,pop_attn
+- `{pre_train_time}` is the last level directory where the pretrained model is stored, with a format similar to `%y%m%d_%H%M%S`
+### Domain generalization experiment
+The domain generalization experiment is performed using the following command
 ```
-
-### eval
-When you train a model on a dataset (such as OrganANMNIST), you can perform domain generalization testing directly on three datasets by executing the following command:
+python main.py --dataset=organamnist --test_dataset=organcmnist --phase=meta_eval --time_stamp_pre={pre_train_time} --time_stamp_meta={pre_train_meta}
 ```
-python main.py --mode=eval --dataset=organamnist --test_dataset=organsmnist --gpu_ids=0 --l2d=EWA --train_experts=3 --time_stamp={train_time}
-```
-- `{train_time}` is the last level directory where the trained model is stored, with a format similar to `%y%m%d_%H%M%S`
-
-## Adaptive Number of Experts
-Only `EWA` and `EWA_pop` algorithms can achieve this experiment by executing the following command:
-```
-python main_expert_num_vary.py --mode=eval --l2d=EWA --train_experts=3 --test_experts=4 time_stamp={train_time} --gpu_ids=0
-```
+- `{meta_train_time}` is the last level directory where the meta-traine model is stored, with a format similar to `%y%m%d_%H%M%S`
